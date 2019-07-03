@@ -1,11 +1,11 @@
 pipeline {
     agent any 
     stages {
-        stage('Build') { 
+        stage('Build') {
+ 	tools {
+         maven 'M3'
+         }
             steps {
-               tools {
-   	 maven 'M3'
- 	 }
                 sh 'echo building' 
                sh '''
                     echo "PATH = ${PATH}"
