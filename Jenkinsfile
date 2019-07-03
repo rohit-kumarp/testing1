@@ -4,7 +4,7 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'echo building' 
-                git branch | grep \* | cut -d ' ' -f2
+                git branch
             }
         }
         stage('Test') { 
