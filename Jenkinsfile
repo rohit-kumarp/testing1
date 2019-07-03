@@ -5,6 +5,9 @@ pipeline {
  	tools {
          maven 'M3'
          }
+	dir ('~/Desktop ') { 
+    sh('JenkinsBuild.sh')
+	}
             steps {
                 sh 'echo building' 
                sh '''
