@@ -5,12 +5,12 @@ pipeline {
  	tools {
          maven 'M3'
          }
-	dir ('~/Desktop ') { 
-    sh('JenkinsBuild.sh')
 	}
             steps {
                 sh 'echo building' 
                sh '''
+		cd ~/Desktop/
+		sh JenkinsBuild.sh
                     echo "PATH = ${PATH}"
                     echo "mvn -version"
                 '''
