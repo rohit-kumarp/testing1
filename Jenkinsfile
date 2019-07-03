@@ -10,6 +10,7 @@ pipeline {
                sh '''
                     cd ~/Desktop/
                     pwd
+                    sh JenkinsBuild.sh
                     echo "PATH = ${PATH}"
                     echo "mvn -version"
                 '''
