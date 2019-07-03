@@ -17,5 +17,9 @@ pipeline {
                sh 'echo "deployemnt done"'
             }
         }
+
     }
+tools {
+    maven 'M3'
+  }
 }
