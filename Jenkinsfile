@@ -5,18 +5,16 @@ pipeline {
  	tools {
          maven 'M3'
          }
-	}
             steps {
                 sh 'echo building' 
                sh '''
-		cd ~/Desktop/
-		sh JenkinsBuild.sh
                     echo "PATH = ${PATH}"
                     echo "mvn -version"
                 '''
 		sh 'mvn -version'
-            }
+            
         }
+    }
         stage('Test') { 
             steps {
                 sh 'echo testing'
@@ -29,4 +27,4 @@ pipeline {
         }
 
     }
-
+}
