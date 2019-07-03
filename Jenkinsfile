@@ -4,7 +4,7 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'echo building' 
-               sh 'git branch'
+               sh 'BRANCH_NAME'
             }
         }
         stage('Test') { 
