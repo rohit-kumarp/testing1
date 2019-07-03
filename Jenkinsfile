@@ -6,7 +6,7 @@ pipeline {
                 sh 'echo building' 
                sh '''
                     echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
+                    echo "mvn -version"
                 '''
             }
         }
@@ -22,4 +22,7 @@ pipeline {
         }
 
     }
+tools {
+    maven 'M3'
+  }
 }
