@@ -3,6 +3,9 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
+               tools {
+   	 maven 'M3'
+ 	 }
                 sh 'echo building' 
                sh '''
                     echo "PATH = ${PATH}"
@@ -23,7 +26,4 @@ pipeline {
         }
 
     }
-tools {
-    maven 'M3'
-  }
 }
