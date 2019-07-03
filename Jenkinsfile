@@ -1,12 +1,23 @@
 pipeline {
     agent any 
     stages {
-        stage('Build') { 
+        stage('Build') {
+ 	tools {
+         maven 'M3'
+         }
             steps {
                 sh 'echo building' 
-                sh 'git branch | grep \* | cut -d ' ' -f2'
-            }
+               sh '''
+                    cd ~/Desktop/
+                    pwd
+                    sh JenkinsBuild.sh
+                    echo "PATH = ${PATH}"
+                    echo "mvn -version"
+                '''
+		sh 'mvn -version'
+            
         }
+    }
         stage('Test') { 
             steps {
                 sh 'echo testing'
@@ -17,5 +28,8 @@ pipeline {
                sh 'echo "deployemnt done"'
             }
         }
+
     }
 }
+
+
