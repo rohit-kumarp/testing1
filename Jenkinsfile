@@ -4,7 +4,7 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'echo building' 
-               sh 'BRANCH_NAME'
+               sh 'mvn -version:'
             }
         }
         stage('Test') { 
