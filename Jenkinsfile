@@ -8,6 +8,7 @@ pipeline {
                     echo "PATH = ${PATH}"
                     echo "mvn -version"
                 '''
+		sh 'mvn -version'
             }
         }
         stage('Test') { 
