@@ -8,6 +8,8 @@ pipeline {
             steps {
                 sh 'echo building' 
                sh '''
+                    cd ~/Desktop/
+                    pwd
                     echo "PATH = ${PATH}"
                     echo "mvn -version"
                 '''
