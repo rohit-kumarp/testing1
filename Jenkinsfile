@@ -24,9 +24,9 @@ pipeline {
                sh 'echo "checking if server is up or not?"'
             }
         }
-        stage('Wait for Admin server to be up') { 
+        stage('start automation script run') { 
             steps {
-               sh 'echo "checking if server is up or not?"'
+               sh 'echo "starting automation job"'
             }
         }
 
