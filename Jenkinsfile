@@ -1,31 +1,32 @@
 pipeline {
     agent any 
     stages {
-        stage('Build') {
+        stage('merging with latest master') {
  	tools {
          maven 'M3'
          }
             steps {
                 sh 'echo building' 
                sh '''
-                    cd ~/Desktop/
-                    pwd
-                    sh JenkinsBuild.sh
-                    echo "PATH = ${PATH}"
-                    echo "mvn -version"
+                    sh  merge_master.sh
                 '''
 		sh 'mvn -version'
             
         }
     }
-        stage('Test') { 
+        stage('Deploy Admin Job') { 
             steps {
-                sh 'echo testing'
+                sh 'echo "starting deployemnt in admin build"'
             }
         }
-        stage('Deploy') { 
+        stage('Wait for Admin server to be up') { 
             steps {
-               sh 'echo "deployemnt done"'
+               sh 'echo "checking if server is up or not?"'
+            }
+        }
+        stage('Wait for Admin server to be up') { 
+            steps {
+               sh 'echo "checking if server is up or not?"'
             }
         }
 
