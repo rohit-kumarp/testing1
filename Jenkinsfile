@@ -3,7 +3,7 @@ def BRANCH= 'UNKNOWN'
 pipeline {
     agent any 
     stages {
-        stage('merging with latest master and push to repo') {
+        stage('merge master and push') {
  	tools {
          maven 'M3'
          }
@@ -12,14 +12,25 @@ pipeline {
                sh '''
                     sh  merge_master.sh $GIT_BRANCH
                 '''
-		}
-    }
+		  }
+        }
         stage('Deploy Admin Job') { 
             steps {
-                sh 'echo "starting deployemnt in admin build"'
+                sh 'echo "*** starting deployemnt in admin build ***"'
                 build job: 'tesing', parameters: [[$class: 'StringParameterValue', name: 'test', value: "$GIT_BRANCH"]]
             }
         }
+        stage('Delete temp PR Branch') { 
+            steps {
+                sh '''
+                    echo "*** removing temp PR branch ***"
+                    git push \'https://github.com/rohitAutomation/testing1.git\' --delete --force $GIT_BRANCH
+                '''
+                //sh 'echo "*** removing temp PR branch ***"'
+               // sh 'git push \'https://github.com/rohitAutomation/testing1.git\' --delete --force $GIT_BRANCH'
+            }
+        }
+
         stage('Wait for Admin server to be up') { 
             steps {
                sh 'echo "checking if server is up or not?"'
