@@ -12,7 +12,7 @@ pipeline {
                
                 sh 'echo $BRANCH'
                 script {
-          BRANCH = sh(returnStdout: true, script: 'echo 0.0.1')
+          BRANCH = sh 'echo $GIT_BRANCH'
         }
                 sh 'echo $BRANCH'
                sh '''
