@@ -7,7 +7,7 @@ pipeline {
          }
             steps {
                 sh 'echo building' 
-                sh 'echo $env.GIT_BRANCH'
+                sh 'echo $GIT_BRANCH'
                 sh 'echo $BRANCH_NAME'
                sh '''
                     git --version
