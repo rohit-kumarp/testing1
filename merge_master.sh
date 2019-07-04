@@ -28,3 +28,4 @@ if ! git push https://github.com/rohitAutomation/testing1.git ${Branch}; then
 fi
 
 echo "*** Successfully Pushed PR temp branch \"${branch}\""
+exit 0
