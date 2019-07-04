@@ -11,7 +11,8 @@ pipeline {
                 sh 'echo building' 
                
                 sh 'echo $BRANCH'
-                BRANCH = `echo $GIT_BRANCH`
+                BRANCH = sh 'echo $GIT_BRANCH'
+                sh 'echo $BRANCH'
                sh '''
                     sh  merge_master.sh
                 '''
