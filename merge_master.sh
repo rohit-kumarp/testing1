@@ -10,7 +10,7 @@ fi
 if git checkout $branch; then
 	git fetch origin master && git merge FETCH_HEAD --no-ff  --no-edit
 else
- git checkout -b $branch; then
+ git checkout -b $branch
   echo "*** error: Failed to create temp branch ***"
   exit 1
 fi
