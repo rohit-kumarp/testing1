@@ -12,7 +12,7 @@ pipeline {
                
                 sh 'echo $BRANCH'
                sh '''
-                    BRANCH = `echo $GIT_BRANCH`
+                    $BRANCH = `echo $GIT_BRANCH`
                     
                 '''
 		sh 'mvn -version'
