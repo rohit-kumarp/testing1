@@ -4,9 +4,10 @@ pipeline {
     agent any 
     stages {
         stage('merge master and push') {
- 	tools {
+ 	/* This is not required, as of now.
+    tools {
          maven 'M3'
-         }
+         }*/
             steps {
                 
                sh '''
@@ -26,8 +27,6 @@ pipeline {
                     echo "*** removing temp PR branch ***"
                     git push \'https://github.com/rohitAutomation/testing1.git\' --delete --force $GIT_BRANCH
                 '''
-                //sh 'echo "*** removing temp PR branch ***"'
-               // sh 'git push \'https://github.com/rohitAutomation/testing1.git\' --delete --force $GIT_BRANCH'
             }
         }
 
