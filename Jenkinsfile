@@ -8,6 +8,7 @@ pipeline {
             steps {
                 sh 'echo building' 
                sh '''
+                    git --version
                     sh  merge_master.sh
                 '''
 		sh 'mvn -version'
