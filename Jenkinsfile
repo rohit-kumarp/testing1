@@ -9,7 +9,7 @@ pipeline {
          }
             steps {
                 
-               sh '''
+               sh ''' 
                     sh  merge_master.sh $GIT_BRANCH
                 '''
 		}
