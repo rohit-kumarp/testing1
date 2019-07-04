@@ -39,9 +39,9 @@ pipeline {
             }
         }
         stage('test') { 
-            echo "*** starting automation sanity run ***"
+
             steps {
-               sh 'echo "starting automation job"'
+                echo "*** starting automation sanity run ***"
             }
         }
 
