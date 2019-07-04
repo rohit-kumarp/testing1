@@ -15,8 +15,10 @@ pipeline {
         }
         stage('Deploy Admin Job') { 
             steps {
-                echo "*** starting deployemnt in admin build ***"
+                sh '''
+                    echo "*** starting deployemnt in admin build ***"
                 build job: 'tesing', parameters: [[$class: 'StringParameterValue', name: 'test', value: "$GIT_BRANCH"]]
+                '''
             }
         }
         stage('Delete temp PR Branch') { 
