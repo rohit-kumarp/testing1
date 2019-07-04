@@ -1,3 +1,5 @@
+
+def BRANCH= 'UNKNOWN'
 pipeline {
     agent any 
     stages {
@@ -7,10 +9,9 @@ pipeline {
          }
             steps {
                 sh 'echo building' 
-                sh 'echo $GIT_BRANCH'
-                sh 'echo $BRANCH_NAME'
+                BRANCH = sh '$GIT_BRANCH'
+                sh 'echo $BRANCH'
                sh '''
-                    git --version
                     sh  merge_master.sh
                 '''
 		sh 'mvn -version'
