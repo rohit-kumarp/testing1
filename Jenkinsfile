@@ -7,9 +7,9 @@ pipeline {
          }
             steps {
                 sh 'echo building' 
+                sh 'echo $BRANCH_NAME'
                sh '''
                     git --version
-                    BRANCH_NAME
                     sh  merge_master.sh
                 '''
 		sh 'mvn -version'
