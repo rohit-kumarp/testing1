@@ -9,7 +9,9 @@ pipeline {
          }
             steps {
                 sh 'echo building' 
-                BRANCH = sh '$GIT_BRANCH'
+                script {
+          BRANCH = sh(returnStdout: true, script: '$GIT_BRANCH')
+        }
                 sh 'echo $BRANCH'
                sh '''
                     sh  merge_master.sh
