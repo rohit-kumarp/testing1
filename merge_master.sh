@@ -13,7 +13,7 @@ if ! git checkout -b $branch; then
   exit 1
 fi
 else git checkout $branch
-if
+fi
 
 if ! git fetch origin master && git merge FETCH_HEAD --no-ff  --no-edit; then
   echo "*** error: Failed to merge with latest branch ***"
