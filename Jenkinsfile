@@ -23,8 +23,8 @@ pipeline {
         }
         stage('Delete temp PR Branch') { 
             steps {
+                echo "*** removing temp PR branch ***"
                 sh '''
-                    echo "*** removing temp PR branch ***"
                     git push \'https://github.com/rohitAutomation/testing1.git\' --delete --force $GIT_BRANCH
                 '''
             }
@@ -32,12 +32,14 @@ pipeline {
 
         stage('Wait for Admin server to be up') { 
             steps {
+                echo "*** checking for admin server up or not ... ***"
                sh '''
                     sh server_up_status.sh
                 '''
             }
         }
-        stage('start automation script run') { 
+        stage('test') { 
+            echo "*** starting automation sanity run ***"
             steps {
                sh 'echo "starting automation job"'
             }
