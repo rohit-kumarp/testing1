@@ -30,7 +30,7 @@ pipeline {
 
         stage('Wait for Admin server to be up') { 
             steps {
-               sh 'echo "checking if server is up or not?"'
+               sh server_up_status.sh
             }
         }
         stage('start automation script run') { 
