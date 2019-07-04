@@ -13,7 +13,7 @@ pipeline {
                 sh 'echo $BRANCH'
                sh '''
                     BRANCH = `echo $GIT_BRANCH`
-                    sh  merge_master.sh
+                    
                 '''
 		sh 'mvn -version'
             
