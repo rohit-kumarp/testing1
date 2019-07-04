@@ -19,7 +19,7 @@ fi
 
 echo "*** pushing ${branch} to git repo with master ***"
 
-if ! git push origin ${Branch}; then
+if ! git push ${Branch}; then
   echo "*** error: Failed to push temp branch \"${branch}\" in git repo ***"
   exit 1
 fi
