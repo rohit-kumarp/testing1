@@ -7,6 +7,12 @@ pipeline {
          }
             steps {
                 sh 'echo building' 
+
+                sh 'git name-rev --name-only HEAD > GIT_BRANCH'
+                sh 'cat GIT_BRANCH'
+                git_branch = readFile('GIT_BRANCH').trim()
+                env.GIT_BRANCH = git_branch
+                sh 'echo $env.GIT_BRANCH'
                 sh 'echo $BRANCH_NAME'
                sh '''
                     git --version
