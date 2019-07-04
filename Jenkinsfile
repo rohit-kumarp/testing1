@@ -23,7 +23,7 @@ pipeline {
         stage('Delete temp PR Branch') { 
             steps {
                 sh 'echo "*** removing temp PR branch ***"'
-                git push 'https://github.com/rohitAutomation/testing1.git' --delete --force $GIT_BRANCH
+                sh 'git push \'https://github.com/rohitAutomation/testing1.git\' --delete --force $GIT_BRANCH'
             }
         }
 
