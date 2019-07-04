@@ -1,31 +1,37 @@
+
+def BRANCH= 'UNKNOWN'
 pipeline {
     agent any 
     stages {
-        stage('Build') {
+        stage('merging with latest master') {
  	tools {
          maven 'M3'
          }
             steps {
                 sh 'echo building' 
+               
+                sh 'echo $BRANCH'
+                sh 'echo $BRANCH'
                sh '''
-                    cd ~/Desktop/
-                    pwd
-                    sh JenkinsBuild.sh
-                    echo "PATH = ${PATH}"
-                    echo "mvn -version"
+                    sh  merge_master.sh $GIT_BRANCH
                 '''
 		sh 'mvn -version'
             
         }
     }
-        stage('Test') { 
+        stage('Deploy Admin Job') { 
             steps {
-                sh 'echo testing'
+                sh 'echo "starting deployemnt in admin build"'
             }
         }
-        stage('Deploy') { 
+        stage('Wait for Admin server to be up') { 
             steps {
-               sh 'echo "deployemnt done"'
+               sh 'echo "checking if server is up or not?"'
+            }
+        }
+        stage('start automation script run') { 
+            steps {
+               sh 'echo "starting automation job"'
             }
         }
 
