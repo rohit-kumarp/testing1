@@ -14,7 +14,7 @@ else
   echo "*** error: Failed to create temp branch ***"
   exit 1
 fi
-fi
+
 
 if ! git fetch origin master && git merge FETCH_HEAD --no-ff  --no-edit; then
   echo "*** error: Failed to merge with latest branch ***"
