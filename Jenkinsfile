@@ -1,5 +1,3 @@
-
-def BRANCH= 'UNKNOWN'
 pipeline {
     agent any 
     stages {
