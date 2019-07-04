@@ -7,14 +7,13 @@ if [ -z "$branch" ]; then
   exit 1
 fi
 
-if git checkout $branch; then
-	git fetch origin $branch && git merge FETCH_HEAD --no-ff  --no-edit
-else
- git checkout -b $branch
+if ! git checkout $branch; then
+if ! git checkout -b $branch; then
   echo "*** error: Failed to create temp branch ***"
   exit 1
 fi
-
+else git checkout $branch
+if
 
 if ! git fetch origin master && git merge FETCH_HEAD --no-ff  --no-edit; then
   echo "*** error: Failed to merge with latest branch ***"
