@@ -1,2 +1,2 @@
-branch=`git branch | grep \* | cut -d ' ' -f2`
+branch=$1
 echo "*** Current Working branch is : \"$branch\" ***"

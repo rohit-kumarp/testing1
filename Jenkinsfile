@@ -11,12 +11,9 @@ pipeline {
                 sh 'echo building' 
                
                 sh 'echo $BRANCH'
-                script {
-          BRANCH = sh 'echo $GIT_BRANCH'
-        }
                 sh 'echo $BRANCH'
                sh '''
-                    sh  merge_master.sh
+                    sh  merge_master.sh $GIT_BRANCH
                 '''
 		sh 'mvn -version'
             
