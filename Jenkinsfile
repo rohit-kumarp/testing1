@@ -9,6 +9,7 @@ pipeline {
                 sh 'echo building' 
                sh '''
                     git --version
+                    pwd
                     sh  merge_master.sh
                 '''
 		sh 'mvn -version'
