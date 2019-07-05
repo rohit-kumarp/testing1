@@ -5,6 +5,9 @@ pwd
 
 echo `git remote -v`
 
+branch1=`git branch | grep \* | cut -d ' ' -f2`
+echo "*** Current Working branch is : \"$branch1\" ***"
+
 if [ -z "$branch" ]; then
   echo "*** error: Failed to get PR branch *** "
   exit 1
