@@ -1,7 +1,6 @@
 pipeline {
 
     agent any 
-
     stages {
         stage('merge master and push') {
  	/* This is not required, as of now.
