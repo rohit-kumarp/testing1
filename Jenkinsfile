@@ -48,7 +48,7 @@ pipeline {
             steps {
                 echo "*** checking for admin server up or not ... ***"
                sh '''
-                    result=`curl -s -I https://admin.qa1freshbots.com/hello | grep HTTP/2 | awk {'print $2'}`
+                    result= curl -s -I https://admin.qa1freshbots.com/hello | grep HTTP/2 
                     $result
                 '''//sh server_up_status.sh
             }
