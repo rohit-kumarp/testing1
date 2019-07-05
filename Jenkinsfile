@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                 
-                echo "curl -s -I https://admin.qa1freshbots.com/hello"
+                `echo curl -s -I https://admin.qa1freshbots.com/hello`
                sh ''' 
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
