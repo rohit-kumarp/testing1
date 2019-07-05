@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                sh ''' 
-                   def result= curl -s -I https://admin.qa1freshbots.com/hello | grep HTTP/2 
+                    result= curl -s -I https://admin.qa1freshbots.com/hello 
                     echo $result
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
