@@ -1,9 +1,9 @@
 pipeline {
 
-    agent any 
-
     node {
     checkout scm 
+
+    agent any 
 
     stages {
         stage('merge master and push') {
