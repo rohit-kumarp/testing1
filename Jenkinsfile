@@ -12,11 +12,12 @@ pipeline {
 
                
                sh '''
-                    git pull origin $GIT_BRANCH
+                    
                     git fetch origin master
                     git merge master --no-ff  --no-edit
                     git push origin $GIT_BRANCH
-                '''//sh  merge_master.sh $GIT_BRANCH
+                '''//sh  merge_master.sh $GIT_BRANCH  git pull origin $GIT_BRANCH
+
 		  }
         }
         stage('Deploy Admin Job') { 
