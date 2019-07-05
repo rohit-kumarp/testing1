@@ -16,7 +16,7 @@ pipeline {
                      echo "*** error: Failed to merge with latest branch ***"
                     exit 1
                     fi
-                    echo "branch is `git branch | grep \\* | cut -d ' ' -f2`"
+                    
                     git push origin $GIT_BRANCH
                 '''//sh  merge_master.sh $GIT_BRANCH  git merge FETCH_HEAD --no-ff  --no-edit
 
