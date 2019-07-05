@@ -9,7 +9,7 @@ pipeline {
          }*/
             steps {
 
-               echo "*** branch is  $GIT_BRANCH ***"
+               echo "*** branch is  $origin ***"
                sh '''
                     sh  merge_master.sh $GIT_BRANCH
                 '''
@@ -23,14 +23,14 @@ pipeline {
                 
             }
         }
-        // stage('Delete temp PR Branch') { 
-        //     steps {
-        //         echo "*** removing temp PR branch ***"
-        //         sh '''
-        //             git push \'https://github.com/rohitAutomation/testing1.git\' --delete --force $GIT_BRANCH
-        //         '''
-        //     }
-        // }
+        stage('Delete temp PR Branch') { 
+            steps {
+                echo "*** removing temp PR branch ***"
+                sh '''
+                    git push \'https://github.com/rohitAutomation/testing1.git\' --delete --force $GIT_BRANCH
+                '''
+            }
+        }
 
         stage('Wait for Admin server to be up') { 
             steps {
