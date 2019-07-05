@@ -9,7 +9,7 @@ pipeline {
          }*/
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
-                result= curl -s -I "https://admin.qa1freshbots.com/hello" 
+                result= curl -s -I 'https://admin.qa1freshbots.com/hello' 
                 echo $result
                sh ''' 
                     if  ! git fetch origin master ; then
