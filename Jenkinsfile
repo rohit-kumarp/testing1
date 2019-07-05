@@ -12,7 +12,7 @@ pipeline {
                 
                 sh '''
                     mytoken=$(curl -s -I https://admin.qa1freshbots.com/hello)
-                    echo $mytoken 
+                    echo $mytoken.responseCode 
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
                     exit 1
