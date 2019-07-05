@@ -1,5 +1,8 @@
 pipeline {
     agent any 
+    node {
+    checkout scm
+}
     stages {
         stage('merge master and push') {
  	/* This is not required, as of now.
