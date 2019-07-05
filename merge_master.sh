@@ -16,6 +16,8 @@ if ! git checkout -b $branch; then
 fi
 fi
 
+git pull https://github.com/rohitAutomation/testing1.git ${Branch} -f
+
 if ! git fetch origin master && git merge FETCH_HEAD --no-ff  --no-edit; then
   echo "*** error: Failed to merge with latest branch ***"
   exit 1
