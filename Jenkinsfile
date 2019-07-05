@@ -11,9 +11,7 @@ pipeline {
             steps {
    
                sh '''  
-                    echo "testing "
-                    'echo "testing "'
-                    `echo "testing"`   
+                    "echo" "testing "
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
                     exit 1
