@@ -2,14 +2,14 @@ pipeline {
     agent any 
 
     stages {
-        
         stage('merge master and push') {
  	/* This is not required, as of now.
     tools {
          maven 'M3'
          }*/
             steps {
-                
+
+               echo "*** branch is  $GIT_BRANCH ***"
                sh '''
                     sh  merge_master.sh $GIT_BRANCH
                 '''
