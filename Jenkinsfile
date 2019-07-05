@@ -9,8 +9,11 @@ pipeline {
          }*/
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
-                result= curl -s -I 'https://admin.qa1freshbots.com/hello' 
-                echo $result
+                def url = new URL('https://admin.qa1freshbots.com/hello')
+                def connection = url.openConnection()
+                connection.requestMethod = 'GET'
+                echo connection.responseCode
+                
                sh ''' 
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
