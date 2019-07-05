@@ -10,8 +10,8 @@ pipeline {
          }*/
             steps {
    
-               sh '''  
-                    "echo" "testing "
+               sh """  
+                    echo "testing "
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
                     exit 1
@@ -21,7 +21,7 @@ pipeline {
                     exit 1
                     fi
                     git push origin $GIT_BRANCH
-                '''//sh  merge_master.sh $GIT_BRANCH  git merge FETCH_HEAD --no-ff  --no-edit
+                """//sh  merge_master.sh $GIT_BRANCH  git merge FETCH_HEAD --no-ff  --no-edit
 
 		  }
         }
