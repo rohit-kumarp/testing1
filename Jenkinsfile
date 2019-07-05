@@ -11,13 +11,14 @@ pipeline {
             steps {
 
                
-               sh '''
-                    
+               sh '''     
                     git fetch origin master
-                    git merge FETCH_HEAD --no-ff  --no-edit
-                    
+                    if ! git fetch origin master && git merge FETCH_HEAD --no-ff  --no-edit; then
+                     echo "*** error: Failed to merge with latest branch ***"
+                    exit 1
+                    fi
                     git push origin $GIT_BRANCH
-                '''//sh  merge_master.sh $GIT_BRANCH  git pull origin $GIT_BRANCH
+                '''//sh  merge_master.sh $GIT_BRANCH  git merge FETCH_HEAD --no-ff  --no-edit
 
 		  }
         }
