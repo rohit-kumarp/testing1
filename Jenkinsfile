@@ -1,4 +1,5 @@
 pipeline {
+
     agent any 
 
     stages {
@@ -9,10 +10,14 @@ pipeline {
          }*/
             steps {
 
-               echo "*** branch is  $GIT_BRANCH ***"
+               
                sh '''
-                    sh  merge_master.sh $GIT_BRANCH
-                '''
+                    
+                    git fetch origin master
+                    git merge FETCH_HEAD --no-ff  --no-edit
+                    git push origin $GIT_BRANCH
+                '''//sh  merge_master.sh $GIT_BRANCH  git pull origin $GIT_BRANCH
+
 		  }
         }
         stage('Deploy Admin Job') { 
@@ -23,14 +28,14 @@ pipeline {
                 
             }
         }
-        // stage('Delete temp PR Branch') { 
-        //     steps {
-        //         echo "*** removing temp PR branch ***"
-        //         sh '''
-        //             git push \'https://github.com/rohitAutomation/testing1.git\' --delete --force $GIT_BRANCH
-        //         '''
-        //     }
-        // }
+        stage('Delete temp PR Branch') { 
+            steps {
+                echo "*** removing temp PR branch ***"
+                sh '''
+                    git push \'https://github.com/rohitAutomation/testing1.git\' --delete --force $GIT_BRANCH
+                '''
+            }
+        }
 
         stage('Wait for Admin server to be up') { 
             steps {
@@ -47,7 +52,8 @@ pipeline {
             }
         }
 
-    }
+     }
+
 }
 
 
