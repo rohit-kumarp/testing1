@@ -11,25 +11,6 @@ pipeline {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                 
                 sh '''
-                    result=$(curl -s -I https://admin.qa1freshbots.com/hello | grep HTTP/2 | awk {'print $2'})
-                    echo $result
-                    QUERY_TIMEOUT_SECONDS=5
-                    count=0
-                    while [ "${result}" != 200 ] 
-                    do
-                    sleep $QUERY_TIMEOUT_SECONDS
-                    result=$(curl -s -I https://admin.qa1freshbots.com/hello | grep HTTP/2 | awk {'print $2'})
-                    count=$(( $count + 1 ))
-                    if [ "$count" == 25 ]||[ "$count" == 50 ];then
-                        echo "** status code is : $result ***"
-                    fi
-                    
-                    if [ $count = 60 ]; then
-                    echo "*** error: Could not get status code. Please check manually ***"
-                    exit 1
-                    fi
-                    done
-
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
                     exit 1
@@ -68,9 +49,25 @@ pipeline {
             steps {
                 echo "*** checking for admin server up or not ... ***"
                sh '''
-                    result= curl -s -I https://admin.qa1freshbots.com/hello | grep HTTP/2 
+                    result=$(curl -s -I https://admin.qa1freshbots.com/hello | grep HTTP/2 | awk {'print $2'})
                     echo $result
-                '''//sh server_up_status.sh
+                    QUERY_TIMEOUT_SECONDS=5
+                    count=0
+                    while [ "${result}" != 200 ] 
+                    do
+                        sleep $QUERY_TIMEOUT_SECONDS
+                        result=$(curl -s -I https://admin.qa1freshbots.com/hello | grep HTTP/2 | awk {'print $2'})
+                        count=$(( $count + 1 ))
+                    if [ "$count" == 25 ]||[ "$count" == 50 ];then
+                        echo "** status code is : $result ***"
+                    fi
+                    
+                    if [ $count = 60 ]; then
+                        echo "*** error: Could not get status code. Please check manually ***"
+                        exit 1
+                    fi
+                    done
+                '''
             }
         }
         stage('test') { 
