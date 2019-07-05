@@ -3,7 +3,7 @@ echo "*** Pull Request branch is : \"$branch\" ***"
 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
 pwd
 
-echo `git branch`
+echo `git remote -v`
 
 if [ -z "$branch" ]; then
   echo "*** error: Failed to get PR branch *** "
