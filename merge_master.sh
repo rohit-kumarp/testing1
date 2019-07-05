@@ -8,7 +8,7 @@ if [ -z "$branch" ]; then
 fi
 
 if ! git checkout $branch; then
-if ! git checkout -b $branch; then
+if ! git checkout -b $branch && git pull; then
   echo "*** error: Failed to create temp branch ***"
   exit 1
 fi
