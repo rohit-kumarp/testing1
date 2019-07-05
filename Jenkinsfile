@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                 
-                mytoken=$(curl -s -I 'https://admin.qa1freshbots.com/hello')
+                mytoken=$(curl -s -I https:/\/admin.qa1freshbots.com/hello)
                 echo $mytoken
 
                sh ''' 
