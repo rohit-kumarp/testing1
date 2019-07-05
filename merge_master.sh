@@ -1,7 +1,9 @@
 branch=$1
 echo "*** Pull Request branch is : \"$branch\" ***"
 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
-
+git branch
+branch=`git branch | grep \* | cut -d ' ' -f2`
+echo "*** Current Working branch is : \"$branch\" ***"
 if [ -z "$branch" ]; then
   echo "*** error: Failed to get PR branch *** "
   exit 1
