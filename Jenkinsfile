@@ -13,7 +13,7 @@ pipeline {
          }*/
             steps {
 
-               echo "*** branch is  $remote.origin ***"
+               
                sh '''
                     sh  merge_master.sh $GIT_BRANCH
                 '''
