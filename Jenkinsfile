@@ -6,11 +6,12 @@ pipeline {
  	/* This is not required, as of now.
     tools {
          maven 'M3'
-         }*/
+         }*/def url
+            def connection
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
-                 url = new URL('https://admin.qa1freshbots.com/hello')
-                 connection = url.openConnection()
+                url = new URL('https://admin.qa1freshbots.com/hello')
+                connection = url.openConnection()
                 connection.requestMethod = 'GET'
                 echo connection.responseCode
                 
