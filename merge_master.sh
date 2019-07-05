@@ -2,6 +2,8 @@ branch=$1
 echo "*** Pull Request branch is : \"$branch\" ***"
 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
 
+
+
 if [ -z "$branch" ]; then
   echo "*** error: Failed to get PR branch *** "
   exit 1
