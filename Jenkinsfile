@@ -6,15 +6,11 @@ pipeline {
  	/* This is not required, as of now.
     tools {
          maven 'M3'
-         }*/def url
-            def connection
+         }*/
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
-                url = new URL('https://admin.qa1freshbots.com/hello')
-                connection = url.openConnection()
-                connection.requestMethod = 'GET'
-                echo connection.responseCode
                 
+                echo "curl -s -I https://admin.qa1freshbots.com/hello"
                sh ''' 
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
