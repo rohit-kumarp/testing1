@@ -12,7 +12,7 @@ pipeline {
 
                
                sh '''     
-                    if ! git fetch origin master && git merge FETCH_HEAD --no-ff  --no-edit; then
+                    if [ ! git fetch origin master ] && [ ! git merge FETCH_HEAD --no-ff  --no-edit ]; then
                      echo "*** error: Failed to merge with latest branch ***"
                     exit 1
                     fi
