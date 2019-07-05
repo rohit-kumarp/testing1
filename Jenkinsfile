@@ -19,7 +19,7 @@ pipeline {
                     exit 1
                     fi
                     git push origin $GIT_BRANCH
-                '''//sh  merge_master.sh $GIT_BRANCH  git merge FETCH_HEAD --no-ff  --no-edit
+                '''
 
 		  }
         }
@@ -35,7 +35,10 @@ pipeline {
             steps {
                 echo "*** removing temp PR branch ***"
                 sh '''
-                    git push \'https://github.com/rohitAutomation/testing1.git\' --delete --force $GIT_BRANCH
+                    if ! git push origin --delete --force $GIT_BRANCH ; then
+                    echo "*** error: Failed to remove temp branch ***"
+                    exit 1
+                    fi
                 '''
             }
         }
