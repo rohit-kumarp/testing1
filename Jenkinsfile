@@ -9,7 +9,7 @@ pipeline {
          }*/
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
-               sh '''  
+               sh ''' 
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
                     exit 1
@@ -48,8 +48,9 @@ pipeline {
             steps {
                 echo "*** checking for admin server up or not ... ***"
                sh '''
-                    sh server_up_status.sh
-                '''
+                    result=`curl -s -I https://admin.qa1freshbots.com/hello | grep HTTP/2 | awk {'print $2'}`
+                    $result
+                '''//sh server_up_status.sh
             }
         }
         stage('test') { 
