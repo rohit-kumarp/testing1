@@ -1,5 +1,9 @@
 pipeline {
+
     agent any 
+
+    node {
+    checkout scm 
 
     stages {
         stage('merge master and push') {
@@ -9,7 +13,7 @@ pipeline {
          }*/
             steps {
 
-               echo "*** branch is  $origin ***"
+               echo "*** branch is  $remote.origin ***"
                sh '''
                     sh  merge_master.sh $GIT_BRANCH
                 '''
@@ -47,6 +51,7 @@ pipeline {
             }
         }
 
+        }
     }
 }
 
