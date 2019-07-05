@@ -8,7 +8,7 @@ pipeline {
          maven 'M3'
          }*/
             steps {
-   
+                echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                sh '''  
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
@@ -20,6 +20,7 @@ pipeline {
                     fi
                     git push origin $GIT_BRANCH
                 '''
+                echo "*** successfully pushed temp branch with Pull Request, Merged with Latest Master"
 
 		  }
         }
