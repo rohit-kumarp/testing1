@@ -48,6 +48,8 @@ pipeline {
         stage('Wait for Admin server to be up') { 
             steps {
                 echo "*** checking for admin server up or not ... ***"
+                // Maximum wait time for build to Complete is 5 mint. If not Completed Failed
+                // polling after every 5 Seconds
                sh '''
                     result=$(curl -s -I https://admin.qa1freshbots.com/hello | grep HTTP/2 | awk {'print $2'})
                     echo $result
