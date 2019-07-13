@@ -14,7 +14,7 @@ pipeline {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                 echo pwd
             	script {
-                    pwd = $PWD
+                    pwd = PWD
                 }
                 echo pwd
                 echo PWD
