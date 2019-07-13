@@ -7,11 +7,12 @@ pipeline {
  	/* This is not required, as of now.
     tools {
          maven 'M3'
-         }*/def workspace = sh 'echo pwd'
+         }*/
 
     //${workspace} 
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
+                def workspace = sh 'echo pwd'
                 echo "${workspace}"
                 sh '''	
                     if  ! git fetch origin master ; then
