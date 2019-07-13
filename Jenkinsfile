@@ -12,8 +12,8 @@ pipeline {
     //${workspace} 
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
-                def workspace = sh 'echo pwd'
-                echo "${workspace}"
+
+                echo PWD
                 sh '''	
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
