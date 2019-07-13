@@ -23,7 +23,7 @@ pipeline {
                      echo "*** error: Failed to merge with master ***"
                     exit 1
                     fi
-                    echo $pwd
+                    echo $env.pwd
                     echo $PWD
                     git push origin $GIT_BRANCH
                 '''
