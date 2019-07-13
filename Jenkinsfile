@@ -1,4 +1,4 @@
-def some_var = "some value"
+def some_var = "some value1"
 
 pipeline {
 
