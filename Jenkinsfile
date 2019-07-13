@@ -14,7 +14,9 @@ pipeline {
          	
     //${workspace} 
             steps {
-            	
+            	script{
+                    echo abcdefgh-0.0.${PWD}
+                }
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                 sh '''	
                     if  ! git fetch origin master ; then
@@ -24,28 +26,16 @@ pipeline {
                     if  ! git merge FETCH_HEAD --no-ff  --no-edit  ; then
                      echo "*** error: Failed to merge with master ***"
                     exit 1
-                    fi
-                    
-    				
-    				script {
-                    WORKSPAC = PWD
-                    returnStdout: true
-                }
-                
+                    fi 
                 	git push origin $GIT_BRANCH
                 '''
                 echo "*** successfully pushed temp branch with Pull Request, Merged with Latest Master"
-
                 
-                echo WORKSPAC
-                echo PWD
-                
-
-		  }
+                }
         }
         stage('Deploy Admin Job') { 
             steps {
-                
+                	echo PWD
                     echo "*** starting deployemnt in admin build ***"
                     build job: 'tesing', parameters: [[$class: 'StringParameterValue', name: 'test', value: "$GIT_BRANCH"]]
                 
