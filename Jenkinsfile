@@ -1,18 +1,19 @@
 
 pipeline {
-	def pwd = ""
+	//def pwd = ""
     agent any 
     stages {
         stage('merge master and push') {
  	/* This is not required, as of now.
     tools {
          maven 'M3'
-         }*/
+         }*/def workspace = pwd()
+
+    //${workspace} 
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
-                env.pwd = sh 'echo pwd'
-                sh '''
-                	
+                echo "${workspace}"
+                sh '''	
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
                     exit 1
