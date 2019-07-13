@@ -21,15 +21,14 @@ pipeline {
                      echo "*** error: Failed to merge with master ***"
                     exit 1
                     fi
-
+                    script {
+                    pwd = $PWD
+                }
                     git push origin $GIT_BRANCH
                 '''
                 echo "*** successfully pushed temp branch with Pull Request, Merged with Latest Master"
 
-                echo pwd
-            	script {
-                    pwd = PWD
-                }
+                
                 echo pwd
                 echo PWD
                 
