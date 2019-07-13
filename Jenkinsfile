@@ -7,7 +7,7 @@ pipeline {
  	/* This is not required, as of now.
     tools {
          maven 'M3'
-         }*/def workspace = pwd()
+         }*/def workspace = sh 'echo pwd'
 
     //${workspace} 
             steps {
