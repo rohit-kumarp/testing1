@@ -19,7 +19,8 @@ pipeline {
              //    }
              echo WORKSPACE
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
-                sh '''	
+                sh '''
+                	ls	
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
                     exit 1
