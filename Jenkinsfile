@@ -22,8 +22,10 @@ pipeline {
                      echo "*** error: Failed to merge with master ***"
                     exit 1
                     fi 
-                	git push origin $GIT_BRANCH
+                	
                 '''
+                // Not needed
+                //git push origin $GIT_BRANCH
                 echo "*** successfully pushed temp branch with Pull Request, Merged with Latest Master"
                 
                 }
