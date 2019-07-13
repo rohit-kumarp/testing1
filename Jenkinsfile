@@ -1,7 +1,6 @@
-def some_var = "some value"
 
 pipeline {
-
+	def pwd = pwd()
     agent any 
     stages {
         stage('merge master and push') {
@@ -11,8 +10,8 @@ pipeline {
          }*/
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
-                some_var= pwd()
-                echo "${some_var}"
+                
+                echo "${pwd}"
                 sh '''
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
