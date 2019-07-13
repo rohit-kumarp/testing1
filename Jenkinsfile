@@ -8,7 +8,7 @@ pipeline {
     tools {
          maven 'M3'
          }*/
-
+         	def pwd = "hello my friend..."
     //${workspace} 
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
@@ -23,6 +23,7 @@ pipeline {
                      echo "*** error: Failed to merge with master ***"
                     exit 1
                     fi
+                    echo $pwd
                     echo $PWD
                     git push origin $GIT_BRANCH
                 '''
