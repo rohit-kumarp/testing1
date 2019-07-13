@@ -1,3 +1,5 @@
+def some_var = "some value"
+
 pipeline {
 
     agent any 
@@ -9,7 +11,7 @@ pipeline {
          }*/
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
-                
+                echo "${another_var}"
                 sh '''
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
