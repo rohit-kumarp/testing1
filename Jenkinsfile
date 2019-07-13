@@ -14,10 +14,7 @@ pipeline {
          	
     //${workspace} 
             steps {
-            	script {
-                    
-                    WORKSPAC = PWD
-                }
+            	
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                 sh '''	
                     if  ! git fetch origin master ; then
@@ -28,7 +25,8 @@ pipeline {
                      echo "*** error: Failed to merge with master ***"
                     exit 1
                     fi
-                    WORKSPAC=$PWD
+                    script: WORKSPAC = $PWD,
+    				returnStdout: true
                 
                 	git push origin $GIT_BRANCH
                 '''
