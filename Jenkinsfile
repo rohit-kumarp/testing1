@@ -37,17 +37,17 @@ pipeline {
                 
             }
         }
-        stage('Delete temp PR Branch') { 
-            steps {
-                echo "*** removing temp PR branch ***"
-                sh '''
-                    if ! git push origin --delete --force $GIT_BRANCH ; then
-                    echo "*** error: Failed to remove temp branch ***"
-                    exit 1
-                    fi
-                '''
-            }
-        }
+        // stage('Delete temp PR Branch') { 
+        //     steps {
+        //         echo "*** removing temp PR branch ***"
+        //         sh '''
+        //             if ! git push origin --delete --force $GIT_BRANCH ; then
+        //             echo "*** error: Failed to remove temp branch ***"
+        //             exit 1
+        //             fi
+        //         '''
+        //     }
+        // }
 
         stage('Wait for Admin server to be up') { 
             steps {
