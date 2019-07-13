@@ -14,9 +14,10 @@ pipeline {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                 echo pwd
             	script {
-                    pwd = PWD
+                    pwd = $PWD
                 }
                 echo pwd
+                echo PWD
                 sh '''	
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
