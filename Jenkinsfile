@@ -1,6 +1,6 @@
-
-pipeline {
 	def pwd = "hello my friend..."
+pipeline {
+	
     agent any 
     stages {
         stage('merge master and push') {
