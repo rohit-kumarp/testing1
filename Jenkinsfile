@@ -21,7 +21,7 @@ pipeline {
                      echo "*** error: Failed to merge with master ***"
                     exit 1
                     fi
-                    script pwd = $PWD
+                    pwd = $PWD
                 
                 	git push origin $GIT_BRANCH
                 '''
