@@ -10,7 +10,7 @@ pipeline {
          }*/
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
-                pwd = sh 'echo pwd'
+                env.pwd = sh 'echo pwd'
                 sh '''
                 	
                     if  ! git fetch origin master ; then
