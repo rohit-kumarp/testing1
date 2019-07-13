@@ -14,10 +14,10 @@ pipeline {
          	
     //${workspace} 
             steps {
-            	script{
-                    WORKSPAC="abcdefgh-0.0.${PWD}"
-                }
-                echo WORKSPAC
+            	// script{
+             //        WORKSPAC="abcdefgh-0.0.${PWD}"
+             //    }
+                echo ${workspace}
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                 sh '''	
                     if  ! git fetch origin master ; then
