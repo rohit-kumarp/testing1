@@ -3,17 +3,16 @@ pipeline {
 	
     agent any 
     stages {
-        stage('merge master and push') {
+        stage('Compile') {
  	/* This is not required, as of now.
     tools {
          maven 'M3'
          }*/ 
-         
+
             steps {
             
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                 sh '''
-                	ls	
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
                     exit 1
@@ -30,7 +29,7 @@ pipeline {
                 
                 }
         }
-        stage('Deploy Admin Job') { 
+        stage('Deploy') { 
             steps { 
                     echo "*** starting deployemnt in admin build ***"
                     build job: 'admin-deploy', parameters: [[$class: 'StringParameterValue', name: 'admin_loc', value: "$WORKSPACE"]]
@@ -49,7 +48,7 @@ pipeline {
         //     }
         // }
 
-        stage('Wait for Admin server to be up') { 
+        stage('Server up/down Check') { 
             steps {
                 echo "*** checking for admin server up or not ... ***"
                 // Maximum wait time for build to Complete is 5 mint. If not Completed Failed
@@ -76,7 +75,7 @@ pipeline {
                 '''
             }
         }
-        stage('test') { 
+        stage('Tests') { 
 
             steps {
                 echo "*** starting automation sanity run ***"
