@@ -11,11 +11,11 @@ pipeline {
          	
     //${workspace} 
             steps {
-            	echo pwd
+                echo "*** creating temp branch with Pull Request & Merge with Latest Master"
+                echo pwd
             	script {
                     pwd = PWD
                 }
-                echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                 echo pwd
                 sh '''	
                     if  ! git fetch origin master ; then
