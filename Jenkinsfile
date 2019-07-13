@@ -14,9 +14,7 @@ pipeline {
          	
     //${workspace} 
             steps {
-            	script{
-                    echo abcdefgh-0.0.${PWD}
-                }
+            	
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                 sh '''	
                     if  ! git fetch origin master ; then
