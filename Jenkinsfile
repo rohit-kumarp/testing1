@@ -1,6 +1,6 @@
 
 pipeline {
-	//def pwd = ""
+	def pwd = "hello my friend..."
     agent any 
     stages {
         stage('merge master and push') {
@@ -8,7 +8,7 @@ pipeline {
     tools {
          maven 'M3'
          }*/
-         	def pwd = "hello my friend..."
+         	
     //${workspace} 
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
