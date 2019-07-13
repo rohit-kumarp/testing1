@@ -1,4 +1,4 @@
-def some_var = "some value1"
+def some_var = "some value"
 
 pipeline {
 
@@ -11,9 +11,9 @@ pipeline {
          }*/
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
+                some_var= pwd()
+                echo "${some_var}"
                 sh '''
-                	test=`echo ${some_var}`
-                	echo $test
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
                     exit 1
