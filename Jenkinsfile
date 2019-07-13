@@ -24,7 +24,7 @@ pipeline {
                      echo "*** error: Failed to merge with master ***"
                     exit 1
                     fi
-                    $WORKSPAC = $PWD
+                    WORKSPAC=$PWD
                 
                 	git push origin $GIT_BRANCH
                 '''
