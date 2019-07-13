@@ -1,9 +1,6 @@
 	
 pipeline {
 	
-	environment {
-        WORKSPAC = "hello my friend..."
-    }
     agent any 
     stages {
         stage('merge master and push') {
@@ -11,13 +8,9 @@ pipeline {
     tools {
          maven 'M3'
          }*/
-         	
-    //${workspace} 
+
             steps {
-            	// script{
-             //        WORKSPAC="abcdefgh-0.0.${PWD}"
-             //    }
-             echo WORKSPACE
+            
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                 sh '''
                 	ls	
@@ -36,10 +29,9 @@ pipeline {
                 }
         }
         stage('Deploy Admin Job') { 
-            steps {
-                	echo PWD
+            steps { 
                     echo "*** starting deployemnt in admin build ***"
-                    build job: 'admin-deploy', parameters: [[$class: 'StringParameterValue', admin_loc: 'test', value: "$WORKSPACE"]]
+                    build job: 'admin-deploy', parameters: [[$class: 'StringParameterValue', name: 'admin_loc', value: "$WORKSPACE"]]
                 
             }
         }
