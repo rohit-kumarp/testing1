@@ -12,12 +12,6 @@ pipeline {
     //${workspace} 
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
-                echo pwd
-            	script {
-                    pwd = PWD
-                }
-                echo pwd
-                echo PWD
                 sh '''	
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
@@ -31,6 +25,14 @@ pipeline {
                     git push origin $GIT_BRANCH
                 '''
                 echo "*** successfully pushed temp branch with Pull Request, Merged with Latest Master"
+
+                echo pwd
+            	script {
+                    pwd = PWD
+                }
+                echo pwd
+                echo PWD
+                
 
 		  }
         }
