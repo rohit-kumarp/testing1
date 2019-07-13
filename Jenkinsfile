@@ -39,7 +39,7 @@ pipeline {
             steps {
                 	echo PWD
                     echo "*** starting deployemnt in admin build ***"
-                    build job: 'tesing', parameters: [[$class: 'StringParameterValue', name: 'test', value: "$WORKSPACE"]]
+                    build job: 'admin-deploy', parameters: [[$class: 'StringParameterValue', name: 'test', value: "$WORKSPACE"]]
                 
             }
         }
