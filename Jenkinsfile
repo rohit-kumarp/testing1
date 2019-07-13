@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
                 
-                echo PATH
+                echo pwd
                 sh '''
                     if  ! git fetch origin master ; then
                      echo "*** error: Failed to fetech latest master ***"
