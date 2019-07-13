@@ -7,8 +7,7 @@ pipeline {
  	/* This is not required, as of now.
     tools {
          maven 'M3'
-         }*/
-
+         }*/ 
             steps {
             
                 echo "*** creating temp branch with Pull Request & Merge with Latest Master"
