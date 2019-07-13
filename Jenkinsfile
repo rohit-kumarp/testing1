@@ -1,6 +1,9 @@
-	def pwd = "hello my friend..."
+	
 pipeline {
 	
+	environment {
+        WORKSPAC = "hello my friend..."
+    }
     agent any 
     stages {
         stage('merge master and push') {
@@ -21,14 +24,14 @@ pipeline {
                      echo "*** error: Failed to merge with master ***"
                     exit 1
                     fi
-                    pwd = $PWD
+                    WORKSPAC = $PWD
                 
                 	git push origin $GIT_BRANCH
                 '''
                 echo "*** successfully pushed temp branch with Pull Request, Merged with Latest Master"
 
                 
-                echo pwd
+                echo WORKSPAC
                 echo PWD
                 
 
