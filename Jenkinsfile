@@ -1,36 +1,32 @@
 pipeline {
     agent any 
-    stages {
-        stage('merging with latest master') {
- 	tools {
-         maven 'M3'
-         }
+    stage('Server up/down Check') {
             steps {
-                sh 'echo building' 
+
                sh '''
-                    sh  merge_master.sh
+                    sh /usr/local/project/jenkins-pipeline/apiServer-check.sh
                 '''
-		sh 'mvn -version'
-            
-        }
-    }
-        stage('Deploy Admin Job') { 
-            steps {
-                sh 'echo "starting deployemnt in admin build"'
             }
-        }
-        stage('Wait for Admin server to be up') { 
-            steps {
-               sh 'echo "checking if server is up or not?"'
-            }
-        }
-        stage('Wait for Admin server to be up') { 
-            steps {
-               sh 'echo "checking if server is up or not?"'
-            }
+
+            post {
+
+                    failure {
+                        script {
+                                    if (env.CHANGE_ID) {
+                                pullRequest.comment('Auto "Pull Request" Check "FAILED" at stage 3(server restart) for Pull Request. PipeLine job failed to restart server with this pull request jar file.')
+                             }
+                        }
+                    }
+
+                }
         }
 
-    }
+        stage('Tests') {
+
+            steps {
+                echo "*** starting automation smoke run ***"
+            }
+        }
 }
 
 
