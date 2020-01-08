@@ -9,7 +9,7 @@ Use this space for your descrpiton
 
 ## Does this pull request potentially affect one of the following parts:
 
-  - Does it depands on Properties changes
+  - Does it depands on Properties\DB changes
   - [ ] Yes
   - [ ] No
   - The basic testing is done.(basic feature testing)
