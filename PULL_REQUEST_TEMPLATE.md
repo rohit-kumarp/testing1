@@ -6,9 +6,12 @@ Use this space for your descrpiton
 
 ```
 ###### ***Please Fill below form after creating a pull request.***
+
 ## Does this pull request potentially affect one of the following parts:
 
-  - Does it depands on Properties\DB changes
+*If `yes` was chosen, please highlight the changes*
+
+  - Does it depands on Properties changes
   - [ ] Yes
   - [ ] No
   - The basic testing is done.(basic feature testing)
@@ -23,7 +26,7 @@ Use this space for your descrpiton
   - [ ] No
   - [ ] Don't Know.
 
-# Check list for `Reviwer` to ensure in review process:
+# Check list for ***Reviwer*** to ensure in review process:
 - [ ] PR-Check Point Pass
 - [ ] Code Coverage
 - [ ] Unit Test Cases
