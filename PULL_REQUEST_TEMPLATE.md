@@ -9,8 +9,6 @@ Use this space for your descrpiton
 
 ## Does this pull request potentially affect one of the following parts:
 
-*If `yes` was chosen, please highlight the changes*
-
   - Does it depands on Properties changes
   - [ ] Yes
   - [ ] No
