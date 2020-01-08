@@ -5,14 +5,10 @@ Use this space for your descrpiton
 
 
 ```
-
 ###### ***Please Fill below form after creating a pull request.***
-
 ## Does this pull request potentially affect one of the following parts:
 
-*If `yes` was chosen, please highlight the changes*
-
-  - Does it depands on Properties changes
+  - Does it depands on Properties\DB changes
   - [ ] Yes
   - [ ] No
   - The basic testing is done.(basic feature testing)
